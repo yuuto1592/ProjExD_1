@@ -10,6 +10,7 @@ def main():
     screen = pg.display.set_mode((800, 600))
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg")
+    turn_bg_img=pg.transform.flip(bg_img,True,False)
     tmr = 0
     koukaton_img=pg.image.load("fig/3.png")
     koukaton_img=pg.transform.flip(koukaton_img,True,False)
@@ -19,6 +20,7 @@ def main():
 
         x=tmr
         screen.blit(bg_img, [-x, 0])
+        screen.blit(turn_bg_img, [-x+1600, 0])
         screen.blit(koukaton_img,[300,200])
         pg.display.update()
         tmr += 1        
