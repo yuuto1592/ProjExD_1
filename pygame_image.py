@@ -21,17 +21,20 @@ def main():
             if event.type == pg.QUIT: return
         
         key_lst=pg.key.get_pressed()
-        if not key_lst[pg.K_UNKNOWN]:
+        if not any(key_lst):
             koukaton_rct.move_ip((-1,0))
 
+        vx,vy=0,0
         if key_lst[pg.K_UP]:
-            koukaton_rct.move_ip((0,-1))
+            vy-=1
         if key_lst[pg.K_DOWN]:
-            koukaton_rct.move_ip((0,1))
+            vy+=1
         if key_lst[pg.K_RIGHT]:
-            koukaton_rct.move_ip((2,0))
+            vx+=2
         if key_lst[pg.K_LEFT]:
-            koukaton_rct.move_ip((-1,0))
+            vx-=1
+        
+        koukaton_rct.move_ip(vx,vy)
 
         x=tmr%3200
         screen.blit(bg_img, [-x, 0])
