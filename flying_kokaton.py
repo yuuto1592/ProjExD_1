@@ -21,8 +21,8 @@ def main():
             if event.type == pg.QUIT: return
         
         key_lst=pg.key.get_pressed()
-        if not any(key_lst):
-            koukaton_rct.move_ip((-1,0))
+        
+        koukaton_rct.move_ip((-1,0))
 
         vx,vy=0,0
         if key_lst[pg.K_UP]:
